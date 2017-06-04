@@ -2,12 +2,39 @@
 
 # Part 1
 
-def sum arr
-  # YOUR CODE HERE
+def sum arr=[]
+  sum = 0
+  if arr.empty? then return 0 
+  else arr.each { |item| 
+    if !item.is_a? Integer then return false 
+    else sum += item 
+    end
+  } 
+  end
+  return sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+   largest = arr[0]
+   index = 0
+   if arr.empty? then return 0 
+   elsif arr.length == 1 then return largest
+   else arr[1..-1].each { |item|
+     if item > largest then 
+       largest = item
+       index = arr.index(largest)
+     end
+     }
+     sum = largest
+     arr.delete_at(index)
+     largest = arr[0]
+     arr[1..-1].each { |item|
+     if item > largest then largest = item
+     end
+     }
+     sum += largest
+   end
+   return sum
 end
 
 def sum_to_n? arr, n
