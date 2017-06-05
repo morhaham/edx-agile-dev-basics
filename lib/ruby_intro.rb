@@ -8,8 +8,7 @@ def sum arr=[]
   else arr.each { |item| 
     if !item.is_a? Integer then return false 
     else sum += item 
-    end
-  } 
+    end } 
   end
   return sum
 end
@@ -23,15 +22,13 @@ def max_2_sum arr
      if item > largest then 
        largest = item
        index = arr.index(largest)
-     end
-     }
+     end }
      sum = largest
      arr.delete_at(index)
      largest = arr[0]
      arr[1..-1].each { |item|
      if item > largest then largest = item
-     end
-     }
+     end }
      sum += largest
    end
    return sum
