@@ -38,8 +38,18 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+    if !n.is_a? Integer or !n.is_a? Integer or arr.empty? or arr.length == 1 then return false end
+    for i in 0..arr.length-2
+        if !arr[i].is_a? Integer then return false
+        else for t in i+1..arr.length-1
+                if arr[i] + arr[t] == n then return true end
+             end
+        end
+    end
+    return false
 end
+
+# print(sum_to_n?([1,3,4], 5))
 
 # Part 2
 
