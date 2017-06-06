@@ -51,15 +51,27 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+    if name.is_a? String
+        return "Hello, "+name
+    end
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  if !s.is_a? String or s =~ /^[aeiou].*|[!@#$%^&*()_+0-9]+.*|^$$/i then
+    return false
+  else
+    return true
+  end
 end
 
+# print starts_with_consonant? '$bbb'
+
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  if !s.is_a? String or s =~ /[a-z2-9!@#$%^&*()_+]+.*|^$/i then
+    return false
+  elsif s.to_i(2) % 4 == 0 then
+    return true
+  end
 end
 
 # Part 3
@@ -67,3 +79,4 @@ end
 class BookInStock
 # YOUR CODE HERE
 end
+
