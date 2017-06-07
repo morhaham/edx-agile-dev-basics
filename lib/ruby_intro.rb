@@ -57,7 +57,7 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  if !s.is_a? String or s =~ /^[aeiou].*|[!@#$%^&*()_+0-9]+.*|^$$/i then
+  if !s.is_a? String or s =~ /^[aeiou].*|[!@#$%^&*()_+0-9]+.*|^$/i then
     return false
   else
     return true
@@ -76,7 +76,69 @@ end
 
 # Part 3
 
+
+
 class BookInStock
-# YOUR CODE HERE
+  
+  def initialize isbn, price
+    case isbn
+      when !String then
+        raise ArgumentError, "#{@isbn} is not a string"
+      when '' then
+        raise ArgumentError, "Empty string"
+      else
+        @isbn = isbn
+    end
+    case price
+      when !Float, !Integer then
+        raise ArgumentError, "#{@price} is not a number"
+      when -1.0/0.0..0 then 
+        raise ArgumentError, "The price is zero or lower"
+      else
+        @price = price.to_f
+    end
+  end
+  
+  def isbn= isbn 
+    case isbn
+      when !String then
+        raise ArgumentError, "#{@isbn} is not a string"
+      when '' then
+        raise ArgumentError, "Empty string"
+      else
+        @isbn = isbn
+    end
+  end
+  
+  def price= price
+    case price
+      when !Float, !Integer then
+        raise ArgumentError, "#{@price} is not a number"
+      when -1.0/0.0..0 then 
+        raise ArgumentError, "The price is zero or lower"
+      else
+        @price = price.to_f
+    end
+  end
+  
+  def isbn
+    return @isbn
+  end
+  
+  def price
+    return @price
+  end
+  
+  def price_as_string
+    return format "$%.2f", @price
+  end
+
 end
+
+
+
+
+
+
+
 
